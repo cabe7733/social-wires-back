@@ -8,7 +8,7 @@ export default class extends BaseSchema {
       table.increments('id')
       table.string('title')
       table.string('messages')
-      table.integer('idUser')
+      table.integer('id_user')
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
        */

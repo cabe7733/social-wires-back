@@ -1,6 +1,5 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Message from 'App/Models/Message'
-import Database from '@ioc:Adonis/Lucid/Database'
 
 export default class MessagesController {
   public async index({response }: HttpContextContract) {
@@ -26,11 +25,10 @@ export default class MessagesController {
   }
 
   public async show({params, response}: HttpContextContract) {
-    /* const iduser = params.id
-    const user = await Message.findBy('idUser', iduser)
-    return response.ok(user) */
+    const iduser = params.id
+    const user = await Message.findBy('id_user', iduser)
+    return response.ok(user)
 
-    return response.ok(params)
   }
 
 }

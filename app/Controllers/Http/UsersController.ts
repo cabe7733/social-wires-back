@@ -23,5 +23,10 @@ export default class UsersController {
 
   }
 
-  public async show({}: HttpContextContract) {}
+  public async show({params, response}: HttpContextContract) {
+    const iduser = params.id
+    const user = await User.findBy('id', iduser)
+    return response.ok(user)
+
+  }
 }

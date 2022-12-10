@@ -1,19 +1,19 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import User from 'App/Models/User'
 
 export default class LoginController {
   public async login({ request, response, auth }: HttpContextContract) {
     const email = request.input('email')
     const password = request.input('password')
+    console.log(email, password);
+
 
     try {
-      const token = {
-        dataUser:email,
-        log:await auth.use('api').attempt(email, password, {
-          expiresIn: '120 mins'
-        }),
-        session:auth.use('api').isLoggedIn
+      const infoUser={
+        'token': await auth.use('api').attempt(email, password),
+        'user':await User.findBy('email', email),
       }
-      return token
+      return infoUser
     } catch {
       return response.unauthorized('Invalid credentials')
     }

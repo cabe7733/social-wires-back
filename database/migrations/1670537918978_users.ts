@@ -8,8 +8,8 @@ export default class extends BaseSchema {
       table.increments('id').primary()
       table.string('email')
       table.string('password')
-      table.string('userName')
-      table.string('nameComplete')
+      table.string('user_name')
+      table.string('name_complete')
       table.string('remember_me_token').nullable()
 
       /**

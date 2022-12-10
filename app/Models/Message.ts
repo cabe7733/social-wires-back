@@ -12,7 +12,7 @@ export default class Message extends BaseModel {
   public messages: string
 
   @column()
-  public idUser: string
+  public id_user: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

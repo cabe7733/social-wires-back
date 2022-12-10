@@ -13,10 +13,10 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public userName: string
+  public user_name: string
 
   @column()
-  public nameComplete: string
+  public name_complete: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
